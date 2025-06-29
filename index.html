@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBrix Homes - Premium Properties in Ibeju Lekki, Lagos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-emerald: #1B5E5E;
+            --warm-terracotta: #C65D3B;
+            --rich-navy: #1E3A5F;
+            --cream-white: #F7F5F3;
+            --charcoal: #2C2C2C;
+            --accent-copper: #B87333;
+            --soft-mint: #E8F4F1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream-white);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: linear-gradient(135deg, var(--rich-navy) 0%, var(--deep-emerald) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--cream-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--cream-white);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(30, 58, 95, 0.7), rgba(27, 94, 94, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23D4AF37" width="1200" height="800"/><polygon fill="%23C65D3B" points="0,800 400,600 800,700 1200,500 1200,800"/><polygon fill="%231B5E5E" points="0,600 300,400 600,500 900,300 1200,400 1200,800 0,800"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--rich-navy), var(--deep-emerald));
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--cream-white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cream-white);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-copper));
+            color: var(--rich-navy);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream-white);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-copper), var(--primary-gold));
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--rich-navy);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--soft-mint);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--rich-navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--deep-emerald);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-copper));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--rich-navy);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Properties Section */
+        .properties {
+            padding: 5rem 0;
+            background: var(--cream-white);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .property-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--deep-emerald), var(--primary-gold));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23D4AF37" width="400" height="300"/><rect fill="%231B5E5E" x="50" y="80" width="300" height="140" rx="10"/><rect fill="%23C65D3B" x="70" y="100" width="80" height="60" rx="5"/><rect fill="%23C65D3B" x="170" y="100" width="80" height="60" rx="5"/><rect fill="%23C65D3B" x="270" y="100" width="60" height="60" rx="5"/></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-gold);
+            color: var(--rich-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .property-title {
+            font-size: 1.3rem;
+            color: var(--rich-navy);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .property-location {
+            color: var(--deep-emerald);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        .property-feature i {
+            color: var(--primary-gold);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--rich-navy);
+            color: var(--cream-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--cream-white);
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-copper));
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="%23D4AF37" width="400" height="400"/><circle fill="%231B5E5E" cx="200" cy="200" r="150"/><rect fill="%23C65D3B" x="150" y="150" width="100" height="100" rx="10"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: var(--soft-mint);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--rich-navy);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--rich-navy);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--soft-mint);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: var(--cream-white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--cream-white);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gold);
+            color: var(--charcoal);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-copper);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--deep-emerald);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--cream-white);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--rich-navy);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i>
+                CodeBrix Homes
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Premium Real Estate in Lagos</div>
+            <h1>Your Dream Home Awaits in Ibeju Lekki</h1>
+            <p>Discover luxury properties in Lagos' most prestigious emerging district. From modern apartments to executive villas, find your perfect investment opportunity.</p>
+            <div class="cta-buttons">
+                <a href="#properties" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    View Properties
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Schedule Tour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Why Choose CodeBrix Homes?</h2>
+                <p>We're committed to delivering exceptional properties that combine luxury, comfort, and value in Lagos' most desirable locations.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Prime Locations</h3>
+                    <p>All our properties are strategically located in Ibeju Lekki, with easy access to major roads, shopping centers, and business districts.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Investment</h3>
+                    <p>Verified titles, comprehensive legal documentation, and transparent processes ensure your investment is safe and secure.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Quality Construction</h3>
+                    <p>Built with premium materials and modern construction techniques, our properties meet international standards for durability and comfort.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Flexible Payment</h3>
+                    <p>Flexible payment plans designed for both local and diaspora buyers, with options for installment payments and mortgage support.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service team available round the clock to assist with inquiries, viewings, and after-sales support.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Modern Amenities</h3>
+                    <p>All properties feature modern amenities including reliable power supply, water treatment systems, and landscaped environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="properties">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Featured Properties</h2>
+                <p>Explore our carefully selected portfolio of premium properties in Ibeju Lekki, Lagos</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">New Launch</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦85,000,000</div>
+                        <h3 class="property-title">Luxury 4-Bedroom Detached Villa</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Awoyaya, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                4 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                5 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                2 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                450 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">Hot Deal</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦42,000,000</div>
+                        <h3 class="property-title">Modern 3-Bedroom Terrace</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Bogije, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                3 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                4 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                2 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                320 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">Luxury</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦65,000,000</div>
+                        <h3 class="property-title">Executive 4-Bedroom Semi-Detached</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Lakowe, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                4 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                5 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                3 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                380 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">Affordable</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦28,000,000</div>
+                        <h3 class="property-title">Stylish 2-Bedroom Apartment</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Sangotedo, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                2 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                3 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                1 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                180 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">Investment</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦95,000,000</div>
+                        <h3 class="property-title">Premium 5-Bedroom Mansion</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Eleko, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                5 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                6 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                4 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                600 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card animate-on-scroll">
+                    <div class="property-image">
+                        <div class="property-badge">Diaspora Special</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦52,000,000</div>
+                        <h3 class="property-title">Smart 3-Bedroom Duplex</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Abijo GRA, Ibeju Lekki
+                        </div>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                3 Beds
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                4 Baths
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-car"></i>
+                                2 Parking
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                350 sqm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h2>Building Dreams, Creating Legacies</h2>
+                    <p>CodeBrix Homes has been at the forefront of Lagos real estate development for over a decade, specializing in premium properties that combine luxury with affordability. Our focus on Ibeju Lekki stems from our vision of this area as Lagos' next major economic hub.</p>
+                    <p>We understand the unique needs of both local and diaspora buyers, offering tailored solutions that make property ownership accessible and rewarding. Our commitment to quality, transparency, and customer satisfaction has made us a trusted name in Nigerian real estate.</p>
+                    <p>From land acquisition to final handover, we ensure every step of your property journey is smooth, secure, and satisfying. Join thousands of satisfied homeowners who have made CodeBrix Homes their trusted partner in building wealth through real estate.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Properties Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Ongoing Projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-on-scroll"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Get In Touch</h2>
+                <p>Ready to find your dream property? Contact us today for personalized assistance and expert guidance.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Head Office</strong><br>
+                            Plot 45, Admiralty Way, Lekki Phase 1, Lagos
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone Numbers</strong><br>
+                            +234 803 123 4567<br>
+                            +234 701 987 6543
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email Address</strong><br>
+                            info@codebrixhomes.com<br>
+                            sales@codebrixhomes.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Business Hours</strong><br>
+                            Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Diaspora Support</strong><br>
+                            WhatsApp: +234 806 555 0123<br>
+                            International: +1 (555) 123-4567
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Property Interest</label>
+                            <select id="interest" name="interest">
+                                <option value="">Select Property Type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="terrace">Terrace House</option>
+                                <option value="semi-detached">Semi-Detached</option>
+                                <option value="detached">Detached Villa</option>
+                                <option value="mansion">Luxury Mansion</option>
+                                <option value="land">Land Only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select Budget Range</option>
+                                <option value="20-40m">₦20M - ₦40M</option>
+                                <option value="40-60m">₦40M - ₦60M</option>
+                                <option value="60-80m">₦60M - ₦80M</option>
+                                <option value="80-100m">₦80M - ₦100M</option>
+                                <option value="100m+">₦100M+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your property requirements, preferred location, or any questions you have..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeBrix Homes</h3>
+                    <p>Your trusted partner in premium real estate development across Lagos. Building dreams, creating legacies, and making homeownership accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#properties">Properties</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="#">Virtual Tours</a></p>
+                    <p><a href="#">Payment Plans</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Property Types</h3>
+                    <p><a href="#">Luxury Apartments</a></p>
+                    <p><a href="#">Terrace Houses</a></p>
+                    <p><a href="#">Semi-Detached</a></p>
+                    <p><a href="#">Detached Villas</a></p>
+                    <p><a href="#">Premium Mansions</a></p>
+                    <p><a href="#">Commercial Properties</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Locations</h3>
+                    <p><a href="#">Awoyaya</a></p>
+                    <p><a href="#">Bogije</a></p>
+                    <p><a href="#">Lakowe</a></p>
+                    <p><a href="#">Sangotedo</a></p>
+                    <p><a href="#">Eleko</a></p>
+                    <p><a href="#">Abijo GRA</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="#">Terms of Service</a></p>
+                    <p><a href="#">Cookie Policy</a></p>
+                    <p><a href="#">Disclaimer</a></p>
+                    <p><a href="#">Investment Guide</a></p>
+                    <p><a href="#">Documentation</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeBrix Homes. All rights reserved. | Designed with excellence for Nigerian real estate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(27, 94, 94, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--rich-navy) 0%, var(--deep-emerald) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Property card hover effects
+        document.querySelectorAll('.property-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We will contact you within 24 hours.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Add select styling for form dropdowns
+        document.querySelectorAll('select').forEach(select => {
+            select.style.backgroundImage = 'url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNSA1TDkgMSIgc3Ryb2tlPSIjRDRBRjM3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K")';
+            select.style.backgroundRepeat = 'no-repeat';
+            select.style.backgroundPosition = 'right 1rem center';
+            select.style.backgroundSize = '12px';
+            select.style.paddingRight = '3rem';
+            select.style.appearance = 'none';
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+            }, 20);
+        };
+
+        // Initialize counters when stats section comes into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        animateCounter(stat, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const aboutStats = document.querySelector('.about-stats');
+        if (aboutStats) {
+            statsObserver.observe(aboutStats);
+        }
+
+        // Add loading animation for property images
+        document.querySelectorAll('.property-image').forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+            });
+            
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Add click handlers for property cards
+        document.querySelectorAll('.property-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.property-title').textContent;
+                const price = card.querySelector('.property-price').textContent;
+                alert(`Interested in "${title}" for ${price}? Please contact us for more details and to schedule a viewing.`);
+            });
+        });
+    </script>
+</body>
+</html>
